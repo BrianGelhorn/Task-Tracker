@@ -1,7 +1,7 @@
 ﻿using System.Text;
 using Microsoft.Win32.SafeHandles;
 
-namespace Task_Tracker;
+namespace task_tracker;
 using System.Text.Json;
 class Program
 {

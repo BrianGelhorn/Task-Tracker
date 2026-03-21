@@ -8,7 +8,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f37fa883-1877-4001-af4f-d16a2c440d95" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.task-tracker/.idea/.idea.task-tracker/Task-Tracker.sln" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.task-tracker/.idea/.idea.task-tracker/task-tracker.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.task-tracker/.idea/.idea.task-tracker/.idea/.idea.task-tracker/Task-Tracker.sln" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.task-tracker/.idea/.idea.task-tracker/.idea/.idea.task-tracker/task-tracker.sln" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,11 +23,11 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.idea/.idea.task-tracker/.idea/.idea.task-tracker" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.idea/.idea.task-tracker/.idea/.idea.task-tracker/.idea/.idea.task-tracker" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/.idea/.idea.task-tracker/.idea/.idea.task-tracker/Task-Tracker/Program.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/.idea/.idea.task-tracker/.idea/.idea.task-tracker/Task-Tracker/taskDatabase.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/.idea/.idea.task-tracker/.idea/.idea.task-tracker/.idea/.idea.task-tracker/Task-Tracker/Program.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/.idea/.idea.task-tracker/.idea/.idea.task-tracker/.idea/.idea.task-tracker/Task-Tracker/taskDatabase.json" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="McpProjectServerCommands">
     <commands />
@@ -74,7 +74,7 @@
       <option name="USE_MONO" value="0" />
       <option name="RUNTIME_ARGUMENTS" value="" />
       <option name="AUTO_ATTACH_CHILDREN" value="0" />
-      <option name="PROJECT_PATH" value="$PROJECT_DIR$/.idea/.idea.task-tracker/.idea/.idea.task-tracker/Task_Tracker/Task_Tracker.csproj" />
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/.idea/.idea.task-tracker/.idea/.idea.task-tracker/.idea/.idea.task-tracker/Task_Tracker/Task_Tracker.csproj" />
       <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
       <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
       <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
@@ -90,7 +90,7 @@
       <option name="SCRIPT_PATH" value="" />
       <option name="SCRIPT_OPTIONS" value="" />
       <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true" />
-      <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$/.idea/.idea.task-tracker" />
+      <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$/.idea/.idea.task-tracker/.idea/.idea.task-tracker" />
       <option name="INDEPENDENT_INTERPRETER_PATH" value="true" />
       <option name="INTERPRETER_PATH" value="/bin/bash" />
       <option name="INTERPRETER_OPTIONS" value="" />
