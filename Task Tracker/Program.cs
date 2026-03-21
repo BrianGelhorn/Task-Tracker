@@ -89,7 +89,14 @@ class Program
             case "list":
                 if (args.Length > 1)
                 {
-                    ListTasks(args[1]);   
+                    if (StatusTypes.Contains(args[1]))
+                    {
+                        ListTasks(args[1]);   
+                    }
+                    else
+                    {
+                        Console.WriteLine("Error: The specified status is not valid");
+                    }
                 }
                 else
                 {
