@@ -89,6 +89,44 @@ class Program
             default:
                 Console.WriteLine("Unknown command " + args[0]);
                 break;
+            case "mark-in-progress":
+                if (args.Length > 1)
+                {
+                    bool couldParse = int.TryParse(args[1], out int id);
+                    if (couldParse)
+                    {
+                        //Change status to in-progress
+                        ChangeStatus(id, StatusTypes[1]); 
+                    }
+                    else
+                    {
+                        Console.WriteLine("The specified id is not valid");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Error: Missing id");
+                }
+                break;
+            case "mark-done":
+                if (args.Length > 1)
+                {
+                    bool couldParse = int.TryParse(args[1], out int id);
+                    if (couldParse)
+                    {
+                        //Change status to done
+                        ChangeStatus(id, StatusTypes[2]); 
+                    }
+                    else
+                    {
+                        Console.WriteLine("The specified id is not valid");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Error: Missing id");
+                }
+                break;
         }
     }
 
@@ -173,5 +211,22 @@ class Program
             }
         }
         Console.WriteLine(JsonSerializer.Serialize(taskItemsToShow, IndentedSerializerOptions));
+    }
+
+    public static void ChangeStatus(int id, string status)
+    {
+        List<TaskItem> taskItems = GetAllTasks();
+        TaskItem? itemToUpdate = taskItems.Find(x => x.Id == id);
+        if (itemToUpdate == null) return;
+        if (itemToUpdate.Status != status)
+        {
+            itemToUpdate.Status = status;
+            UpdateTaskJson(taskItems);
+            Console.WriteLine("The task with the id " + id + " has been marked as " + status + " successfully");
+        }
+        else
+        {
+            Console.WriteLine("The task with the id " + id + "is already marked as " + status);
+        }
     }
 }
