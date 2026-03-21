@@ -36,8 +36,14 @@ class Program
                 //TODO: Implement help message
                 break;
             case "add":
-                //TODO: Add check of arguments
-                AddTask(args[1]);
+                if (args.Length > 1)
+                {
+                    AddTask(args[1]);   
+                }
+                else
+                {
+                    Console.WriteLine("Error: No task description was specified");
+                }
                 break;
             case "update":
                 //TODO: Implement update logic
@@ -46,7 +52,14 @@ class Program
                 //TODO: Implement delete logic
                 break;
             case "list":
-                //TODO: Implement list logic
+                if (args.Length > 1)
+                {
+                    ListTasks(args[1]);   
+                }
+                else
+                {
+                    ListTasks();
+                }
                 break;
             default:
                 Console.WriteLine("Unknown command " + args[0]);
@@ -55,11 +68,12 @@ class Program
     }
 
     private static string _taskDataBase = File.ReadAllText(TASKDATABASEDIR);
+    private static JsonSerializerOptions indentedSerializerOptions = new(){ WriteIndented = true };
     private static List<TaskItem> GetAllTasks() => JsonSerializer.Deserialize<List<TaskItem>>(_taskDataBase)!;
 
     private static void UpdateTaskJson(List<TaskItem> taskItem)
     {
-        string serializedTaskList = JsonSerializer.Serialize(taskItem, new JsonSerializerOptions{WriteIndented = true});
+        string serializedTaskList = JsonSerializer.Serialize(taskItem, indentedSerializerOptions);
         File.WriteAllText(TASKDATABASEDIR, serializedTaskList);
     }
 
@@ -80,5 +94,26 @@ class Program
         List<TaskItem> tasksToUpdate = GetAllTasks();
         tasksToUpdate.Add(newTask);
         UpdateTaskJson(tasksToUpdate);
+    }
+
+
+    public static void ListTasks()
+    {
+        List<TaskItem> taskItems = GetAllTasks();
+        Console.WriteLine(JsonSerializer.Serialize(taskItems, indentedSerializerOptions));
+    }
+    
+    public static void ListTasks(string status)
+    {
+        List<TaskItem> taskItems = GetAllTasks();
+        List<TaskItem> taskItemsToShow = new();
+        foreach (TaskItem taskItem in taskItems)
+        {
+            if (taskItem.status == status)
+            {
+                taskItemsToShow.Add(taskItem);
+            }
+        }
+        Console.WriteLine(JsonSerializer.Serialize(taskItemsToShow, indentedSerializerOptions));
     }
 }
