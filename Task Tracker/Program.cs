@@ -5,23 +5,23 @@ namespace Task_Tracker;
 using System.Text.Json;
 class Program
 {
-    private const string TASKDATABASEDIR = "taskDatabase.json";
-    private static readonly string[] STATUS = ["todo", "in-progress", "done"];
+    private const string TaskDataBasePath = "taskDatabase.json";
+    private static readonly string[] StatusTypes = ["todo", "in-progress", "done"];
 
     public class TaskItem
     {
-        public int id { get; set; }
-        public string description { get; set; }
-        public string status  { get; set; }
-        public DateTime createdAt  { get; set; }
-        public DateTime updatedAt { get; set; }
+        public required int Id { get; set; }
+        public required string Description { get; set; }
+        public  required string Status  { get; set; }
+        public required DateTime CreatedAt  { get; set; }
+        public required DateTime UpdatedAt { get; set; }
     }
     
     static void Main(string[] args)
     {
-        if (!File.Exists(TASKDATABASEDIR))
+        if (!File.Exists(TaskDataBasePath))
         {
-            File.WriteAllText(TASKDATABASEDIR, "[\n]");
+            File.WriteAllText(TaskDataBasePath, "[\n]");
         }
         if (args.Length == 0)
         {
@@ -45,7 +45,22 @@ class Program
                 }
                 break;
             case "update":
-                //TODO: Implement update logic
+                if (args.Length > 2)
+                {
+                    bool couldParse = int.TryParse(args[1], out int id);
+                    if (couldParse)
+                    {
+                        UpdateTask(id, args[2]);
+                    }
+                    else
+                    {
+                        Console.WriteLine("The specified id is not valid");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Error: Missing Arguments");
+                }
                 break;
             case "delete":
                 if (args.Length > 1)
@@ -77,29 +92,29 @@ class Program
         }
     }
 
-    private static string _taskDataBase = File.ReadAllText(TASKDATABASEDIR);
-    private static JsonSerializerOptions indentedSerializerOptions = new(){ WriteIndented = true };
-    private static List<TaskItem> GetAllTasks() => JsonSerializer.Deserialize<List<TaskItem>>(_taskDataBase)!;
+    private static readonly string TaskDataBase = File.ReadAllText(TaskDataBasePath);
+    private static readonly JsonSerializerOptions IndentedSerializerOptions = new(){ WriteIndented = true };
+    private static List<TaskItem> GetAllTasks() => JsonSerializer.Deserialize<List<TaskItem>>(TaskDataBase)!;
 
     private static void UpdateTaskJson(List<TaskItem> taskItem)
     {
-        string serializedTaskList = JsonSerializer.Serialize(taskItem, indentedSerializerOptions);
-        File.WriteAllText(TASKDATABASEDIR, serializedTaskList);
+        string serializedTaskList = JsonSerializer.Serialize(taskItem, IndentedSerializerOptions);
+        File.WriteAllText(TaskDataBasePath, serializedTaskList);
     }
 
     public static void AddTask(string description)
     {
         int id = GetAllTasks().Count;
-        string status = STATUS[0];
+        string status = StatusTypes[0];
         DateTime createdAt = DateTime.Now;
         DateTime updatedAt = createdAt;
         TaskItem newTask = new TaskItem
         {
-            id = id,
-            description = description,
-            status = status,
-            createdAt = createdAt,
-            updatedAt = updatedAt
+            Id = id,
+            Description = description,
+            Status = status,
+            CreatedAt = createdAt,
+            UpdatedAt = updatedAt
         };
         List<TaskItem> tasksToUpdate = GetAllTasks();
         tasksToUpdate.Add(newTask);
@@ -109,7 +124,7 @@ class Program
     public static void DeleteTask(int id)
     {
         List<TaskItem> taskList = GetAllTasks();
-        TaskItem? itemToDelete = taskList.Find(x => x.id == id);
+        TaskItem? itemToDelete = taskList.Find(x => x.Id == id);
         if (itemToDelete != null)
         {
             taskList.Remove(itemToDelete);
@@ -122,11 +137,28 @@ class Program
         }
     }
 
+    public static void UpdateTask(int id, string description)
+    {
+        List<TaskItem> taskList = GetAllTasks();
+        TaskItem? itemToUpdate = taskList.Find(x => x.Id == id);
+        if (itemToUpdate != null)
+        {
+            itemToUpdate.Description = description;
+            itemToUpdate.UpdatedAt = DateTime.Now;
+            UpdateTaskJson(taskList);
+            Console.WriteLine("The task with the id " + id + " has been updated successfully");
+        }
+        else
+        {
+            Console.WriteLine("Could not find the task with the id " + id + "to update");
+        }
+    }
+    
 
     public static void ListTasks()
     {
         List<TaskItem> taskItems = GetAllTasks();
-        Console.WriteLine(JsonSerializer.Serialize(taskItems, indentedSerializerOptions));
+        Console.WriteLine(JsonSerializer.Serialize(taskItems, IndentedSerializerOptions));
     }
     
     public static void ListTasks(string status)
@@ -135,11 +167,11 @@ class Program
         List<TaskItem> taskItemsToShow = new();
         foreach (TaskItem taskItem in taskItems)
         {
-            if (taskItem.status == status)
+            if (taskItem.Status == status)
             {
                 taskItemsToShow.Add(taskItem);
             }
         }
-        Console.WriteLine(JsonSerializer.Serialize(taskItemsToShow, indentedSerializerOptions));
+        Console.WriteLine(JsonSerializer.Serialize(taskItemsToShow, IndentedSerializerOptions));
     }
 }
