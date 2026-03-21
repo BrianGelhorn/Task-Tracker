@@ -32,7 +32,17 @@ class Program
         switch (args[0])
         {
             case "help":
-                //TODO: Implement help message
+                Console.WriteLine("""
+                                  Usage: task-tracker <command> [ARGUMENTS]
+                                  Commands:
+                                    add "description"           Add a task with the specified description
+                                    update <id> "description"   Update the description of the task with the specified id
+                                    delete <id>                 Delete the task with the specified id
+                                    list                        List all the tasks
+                                    list [status]               List all the tasks with the specified status
+                                    mark-in-progress <id>       Change the status of the task with the specified id to "in-progress"
+                                    mark-done <id>              Change the status of the task with the specified id to "done"
+                                  """);
                 break;
             case "add":
                 if (args.Length > 1)
@@ -86,9 +96,6 @@ class Program
                     ListTasks();
                 }
                 break;
-            default:
-                Console.WriteLine("Unknown command " + args[0]);
-                break;
             case "mark-in-progress":
                 if (args.Length > 1)
                 {
@@ -126,6 +133,9 @@ class Program
                 {
                     Console.WriteLine("Error: Missing id");
                 }
+                break;
+            default:
+                Console.WriteLine("Unknown command " + args[0]);
                 break;
         }
     }
