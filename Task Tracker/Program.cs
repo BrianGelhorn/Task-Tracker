@@ -3,7 +3,6 @@ using Microsoft.Win32.SafeHandles;
 
 namespace Task_Tracker;
 using System.Text.Json;
-using System.Text;
 class Program
 {
     private const string TASKDATABASEDIR = "taskDatabase.json";
@@ -49,7 +48,18 @@ class Program
                 //TODO: Implement update logic
                 break;
             case "delete":
-                //TODO: Implement delete logic
+                if (args.Length > 1)
+                {
+                    bool couldParse = int.TryParse(args[1], out int id);
+                    if (couldParse)
+                    {
+                        DeleteTask(id);
+                    }
+                    else
+                    {
+                        Console.WriteLine("The specified id is not valid");
+                    }
+                }
                 break;
             case "list":
                 if (args.Length > 1)
@@ -94,6 +104,22 @@ class Program
         List<TaskItem> tasksToUpdate = GetAllTasks();
         tasksToUpdate.Add(newTask);
         UpdateTaskJson(tasksToUpdate);
+    }
+
+    public static void DeleteTask(int id)
+    {
+        List<TaskItem> taskList = GetAllTasks();
+        TaskItem? itemToDelete = taskList.Find(x => x.id == id);
+        if (itemToDelete != null)
+        {
+            taskList.Remove(itemToDelete);
+            UpdateTaskJson(taskList);
+            Console.WriteLine("Task with the id " + id + " has been deleted successfully");
+        }
+        else
+        {
+            Console.WriteLine("Could not find the task with the id " + id + "to delete");
+        }
     }
 
 
