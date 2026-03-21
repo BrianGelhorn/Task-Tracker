@@ -12,4 +12,12 @@ A simple tool written in C# CLI made to track ur pendent tasks
 
 # Usage
 
-´./task-tracker <command> [ARGUMENT]´
+` ./task-tracker <command> [ARGUMENT] `
+
+# Compilation
+
+* Install SDK of .NET
+
+` git clone https://github.com/BrianGelhorn/Task-Tracker 
+cd Task_Tracker
+`
