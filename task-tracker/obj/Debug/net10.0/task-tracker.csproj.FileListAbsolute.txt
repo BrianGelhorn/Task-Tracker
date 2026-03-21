@@ -1,0 +1,15 @@
+/home/broogel/RiderProjects/Task Tracker/task-tracker/bin/Debug/net10.0/task-tracker
+/home/broogel/RiderProjects/Task Tracker/task-tracker/bin/Debug/net10.0/task-tracker.deps.json
+/home/broogel/RiderProjects/Task Tracker/task-tracker/bin/Debug/net10.0/task-tracker.runtimeconfig.json
+/home/broogel/RiderProjects/Task Tracker/task-tracker/bin/Debug/net10.0/task-tracker.dll
+/home/broogel/RiderProjects/Task Tracker/task-tracker/bin/Debug/net10.0/task-tracker.pdb
+/home/broogel/RiderProjects/Task Tracker/task-tracker/obj/Debug/net10.0/task-tracker.GeneratedMSBuildEditorConfig.editorconfig
+/home/broogel/RiderProjects/Task Tracker/task-tracker/obj/Debug/net10.0/task-tracker.AssemblyInfoInputs.cache
+/home/broogel/RiderProjects/Task Tracker/task-tracker/obj/Debug/net10.0/task-tracker.AssemblyInfo.cs
+/home/broogel/RiderProjects/Task Tracker/task-tracker/obj/Debug/net10.0/task-tracker.csproj.CoreCompileInputs.cache
+/home/broogel/RiderProjects/Task Tracker/task-tracker/obj/Debug/net10.0/task-tracker.sourcelink.json
+/home/broogel/RiderProjects/Task Tracker/task-tracker/obj/Debug/net10.0/task-tracker.dll
+/home/broogel/RiderProjects/Task Tracker/task-tracker/obj/Debug/net10.0/refint/task-tracker.dll
+/home/broogel/RiderProjects/Task Tracker/task-tracker/obj/Debug/net10.0/task-tracker.pdb
+/home/broogel/RiderProjects/Task Tracker/task-tracker/obj/Debug/net10.0/task-tracker.genruntimeconfig.cache
+/home/broogel/RiderProjects/Task Tracker/task-tracker/obj/Debug/net10.0/ref/task-tracker.dll

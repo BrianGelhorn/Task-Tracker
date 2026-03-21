@@ -238,6 +238,7 @@ class Program
         if (itemToUpdate.Status != status)
         {
             itemToUpdate.Status = status;
+            itemToUpdate.UpdatedAt = DateTime.Now;
             UpdateTaskJson(taskItems);
             Console.WriteLine("The task with the id " + id + " has been marked as " + status + " successfully");
         }
