@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task-Tracker", "Task-Tracker\Task-Tracker.csproj", "{D5FAD878-E005-4DD5-9992-7C9B9721F4AF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "task-tracker", "Task-Tracker\Task-Tracker.csproj", "{D5FAD878-E005-4DD5-9992-7C9B9721F4AF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
