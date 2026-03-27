@@ -1,6 +1,6 @@
 # Task Tracker
 
-A simple tool written in C# CLI made to track ur pendent tasks
+A simple tool written in C# CLI made to track your pendent tasks
 
 # Features
 
